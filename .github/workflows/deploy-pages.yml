@@ -41,6 +41,11 @@ jobs:
         run: |
           mkdir -p public
           cp index.html public/index.html
+          cp index.html public/404.html
+          touch public/.nojekyll
+          test -f public/index.html
+          test -f public/404.html
+          echo 'Verified entry and fallback files'
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
